@@ -185,6 +185,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.pathname === '/api/status') {
+      return json({
+        ok: true,
+        regcheckConfigured: Boolean(env.REGCHECK_USERNAME)
+      });
+    }
+
     if (url.pathname === '/api/lookup') {
       return lookup(request, env);
     }
