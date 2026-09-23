@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f5f6" />
+  <meta name="description" content="Identifiez un véhicule tunisien à partir de son immatriculation et consultez ses caractéristiques essentielles." />
+  <title>Matrik — Identification véhicule Tunisie</title>
+  <style>
+:root{
+  --bg:#f4f5f6; --paper:#fff; --ink:#111318; --muted:#6c737f; --line:#e1e4e8;
+  --dark:#0b0d10; --red:#e11b22; --soft-red:#fff1f1; --green:#16804d;
+  --radius:18px; --shadow:0 18px 55px rgba(13,18,28,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#f4f5f6;min-height:100%;}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#f4f5f6;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+main{width:100%;flex:1;background:#fff}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.site-header{height:76px;background:rgba(244,245,246,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(17,19,24,.06);position:sticky;top:0;z-index:20}.header-inner{height:100%;display:flex;align-items:center;gap:34px}.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:19px;letter-spacing:-.03em}.brand-mark{width:30px;height:30px;display:inline-grid;place-items:center}.brand-mark svg{width:100%;height:100%;fill:var(--ink)}.brand-mark .cut{fill:var(--bg)}.nav{display:flex;gap:26px;margin-left:auto}.nav a{font-size:14px;color:#555d68;text-decoration:none;font-weight:500}.nav a:hover{color:var(--ink)}.small-cta{font-size:13px;text-decoration:none;font-weight:700;color:#fff;background:var(--dark);padding:11px 15px;border-radius:10px}.hero{padding:86px 0 82px;overflow:hidden;background:radial-gradient(circle at 78% 22%,#fff 0,transparent 38%),linear-gradient(180deg,#f6f7f8 0,#f1f2f4 100%)}.hero-grid{display:grid;grid-template-columns:1fr 520px;gap:72px;align-items:center}.eyebrow,.mini-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#6b727d}.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}.eyebrow span{width:25px;height:2px;background:var(--red)}h1,h2,h3,h4,p{margin-top:0}.hero h1{font-size:64px;line-height:1.01;letter-spacing:-.055em;margin-bottom:24px}.hero h1 em{font-style:normal;color:#757c86;font-weight:500}.lead{font-size:18px;line-height:1.65;color:#5f6671;max-width:590px}.trust-row{display:flex;gap:42px;margin-top:40px}.trust-row div{display:flex;flex-direction:column;gap:5px}.trust-row strong{font-size:14px}.trust-row span{font-size:12px;color:#7b818b}.lookup-card{background:var(--paper);border:1px solid #e4e6ea;border-radius:24px;padding:27px;box-shadow:var(--shadow)}.lookup-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:29px}.lookup-head h2{font-size:23px;letter-spacing:-.035em;margin:5px 0 0}.status-dot{font-size:11px;color:var(--green);background:#effaf5;border:1px solid #d7f0e3;border-radius:30px;padding:7px 10px;white-space:nowrap}.status-dot:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#20a564;margin-right:6px}.plate-label{font-size:12px;font-weight:700;margin-bottom:9px}.plate-type-switch{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;background:#f1f2f4;border:1px solid #e1e4e8;border-radius:12px;margin-bottom:13px}.plate-type-switch input{position:absolute;opacity:0;pointer-events:none}.plate-type-switch label{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 12px;border-radius:8px;font-size:12px;font-weight:750;color:#69717c;cursor:pointer;transition:.18s}.plate-type-switch label small{font-size:10px;font-weight:700;opacity:.65}.plate-type-switch input:checked+label{background:#fff;color:#111318;box-shadow:0 2px 9px rgba(16,20,28,.08)}.plate-shell{position:relative}.normal-plate-wrap,.rs-plate-wrap{display:none}.plate-shell:has(#typeNormal:checked) .normal-plate-wrap{display:block}.plate-shell:has(#typeRS:checked) .rs-plate-wrap{display:block}.plate{background:#08090b;border-radius:12px;display:grid;grid-template-columns:1fr 92px 1fr;align-items:center;padding:7px;border:1px solid #1d2026;box-shadow:inset 0 0 0 1px #000,0 6px 16px rgba(0,0,0,.08)}.plate input{width:100%;background:transparent;border:0;outline:none;color:#fff;font-size:28px;text-align:center;font-weight:700;font-family:Inter,sans-serif;letter-spacing:.05em;padding:13px 6px}.plate input::placeholder{color:#62666d}.tunisia{font-family:Tahoma,Arial,sans-serif;color:#fff;text-align:center;font-size:17px;border-left:1px solid #3a3d42;border-right:1px solid #3a3d42;padding:8px}.rs-plate{background:#08090b;border-radius:12px;display:grid;grid-template-columns:112px 1fr;align-items:center;padding:7px;border:1px solid #1d2026;box-shadow:inset 0 0 0 1px #000,0 6px 16px rgba(0,0,0,.08)}.rs-symbol{height:100%;min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;border-right:1px solid #3a3d42;color:#fff}.rs-symbol strong{font-size:21px;letter-spacing:.06em}.rs-symbol span{font-family:Tahoma,Arial,sans-serif;font-size:15px;color:#c9cdd3}.rs-plate input{width:100%;background:transparent;border:0;outline:none;color:#fff;font-size:28px;text-align:center;font-weight:700;font-family:Inter,sans-serif;letter-spacing:.06em;padding:13px 6px}.rs-plate input::placeholder{color:#62666d}.form-hint{font-size:12px;color:#8a9098;margin:9px 0 21px}.form-hint button{border:0;background:transparent;padding:0;color:#4b515b;text-decoration:underline;cursor:pointer;font:inherit}.primary-btn{width:100%;border:0;border-radius:11px;padding:15px 18px;background:var(--red);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:.2s}.primary-btn:hover{transform:translateY(-1px);background:#ca141a}.primary-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}.privacy-note{display:flex;gap:7px;align-items:flex-start;color:#868c95;font-size:11px;line-height:1.45;margin:15px 1px 0}.privacy-note svg{width:15px;min-width:15px;fill:none;stroke:currentColor;stroke-width:1.5}.result-section{padding:58px 0 76px;background:#fff;border-top:1px solid #eceef0}.hidden{display:none}#resultSection:target{display:block}.result-topline{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.searched-plate{margin:5px 0 0;font-size:14px;color:#626975}.demo-pill{font-size:11px;background:#fff6dc;color:#7a5b00;border:1px solid #f3df9d;padding:7px 10px;border-radius:99px}.vehicle-card{background:var(--dark);color:#fff;border-radius:18px;padding:26px 28px;display:flex;justify-content:space-between;align-items:center}.vehicle-main{display:flex;align-items:center;gap:20px}.vehicle-badge{height:62px;width:62px;border-radius:16px;background:#fff;color:#111;display:grid;place-items:center;font-size:13px;font-weight:800}.verified-line{font-size:11px;color:#aeb4bd;margin-bottom:4px}.verify-icon{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:#1e8b55;color:#fff;margin-right:6px}.vehicle-card h3{font-size:29px;letter-spacing:-.04em;margin-bottom:3px}.vehicle-card p{margin:0;color:#aeb4bd;font-size:13px}.vehicle-year{text-align:right}.vehicle-year span{display:block;color:#858c96;font-size:11px;text-transform:uppercase;letter-spacing:.1em}.vehicle-year strong{font-size:26px}.details-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-top:18px}.panel{border:1px solid var(--line);border-radius:17px;padding:24px;background:#fbfbfc}.panel-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}.panel-heading h4{font-size:17px;margin:5px 0 0;letter-spacing:-.02em}.source-tag{font-size:10px;border:1px solid #dfe3e8;border-radius:99px;padding:6px 8px;color:#707782;background:#fff}.spec-list{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid #e6e8eb}.spec{display:flex;justify-content:space-between;gap:10px;padding:15px 0;border-bottom:1px solid #e6e8eb}.spec:nth-child(odd){padding-right:18px;border-right:1px solid #e6e8eb}.spec:nth-child(even){padding-left:18px}.spec span{font-size:12px;color:#7b828c}.spec strong{font-size:12px}.mileage-panel{background:#111419;color:#fff;border-color:#111419}.mileage-panel .mini-label{color:#7e8793}.mileage-panel h4{color:#fff}.mileage-value{font-size:34px;font-weight:800;letter-spacing:-.04em;margin:31px 0 8px}.mileage-copy{font-size:12px;color:#959daa;line-height:1.65;margin-bottom:25px}.mileage-rule{border-top:1px solid #292e35;padding-top:17px;display:flex;gap:9px;font-size:11px;color:#a6adb8;line-height:1.5}.rule-icon{width:18px;height:18px;min-width:18px;display:grid;place-items:center;border:1px solid #4b535e;border-radius:50%;font-size:10px}.how{padding:92px 0;background:#f4f5f6}.section-heading{max-width:560px}.section-heading h2,.data-grid h2,.pro-card h2{font-size:40px;line-height:1.12;letter-spacing:-.045em;margin:8px 0 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}.steps article{padding:28px;background:#fff;border:1px solid #e5e7ea;border-radius:16px;min-height:215px}.steps article>span{font-size:11px;font-weight:800;color:var(--red)}.steps h3{font-size:18px;margin:44px 0 9px}.steps p{font-size:13px;line-height:1.6;color:#747b85;margin:0}.data-section{padding:90px 0;background:#fff}.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}.data-copy>p{font-size:15px;line-height:1.8;color:#69717c;margin-bottom:26px}.check-row{padding:15px 0;border-top:1px solid #eceef0;font-size:13px;font-weight:600}.check-row span{color:var(--green);margin-right:10px}.pro-section{padding:0 0 88px;background:#fff}.pro-card{background:var(--red);color:#fff;border-radius:22px;padding:48px;display:flex;align-items:end;justify-content:space-between;gap:50px}.pro-card>div{max-width:700px}.mini-label.light{color:#ffd5d7}.pro-card p{max-width:620px;color:#ffdfe0;font-size:14px;line-height:1.7;margin:15px 0 0}.outline-btn{white-space:nowrap;border:1px solid rgba(255,255,255,.45);color:#fff;text-decoration:none;padding:13px 16px;border-radius:10px;font-size:13px;font-weight:700}.outline-btn:hover{background:#fff;color:var(--red)}footer{background:#0b0d10;color:#89909a;padding:31px 0}.footer-inner{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:20px;font-size:11px}.footer-inner p{margin:0}.footer-inner p:last-child{text-align:right}.footer-brand{color:#fff}.footer-brand .brand-mark{width:22px;height:22px;background:#fff;border-radius:6px}
+@media(max-width:900px){.nav{display:none}.hero{padding-top:54px}.hero-grid{grid-template-columns:1fr;gap:38px}.hero h1{font-size:52px}.lookup-card{max-width:620px}.details-grid,.data-grid{grid-template-columns:1fr}.data-grid{gap:35px}.pro-card{align-items:flex-start;flex-direction:column}.footer-inner{grid-template-columns:1fr}.footer-inner p:last-child{text-align:left}}
+@media(max-width:620px){.wrap{width:min(100% - 28px,1160px)}.site-header{height:66px}.small-cta{display:none}.hero{padding:43px 0 54px}.hero h1{font-size:42px}.lead{font-size:15px}.trust-row{gap:25px;flex-direction:column}.lookup-card{padding:19px;border-radius:19px}.lookup-head{display:block}.status-dot{display:inline-block;margin-top:12px}.plate{grid-template-columns:1fr 75px 1fr}.plate input{font-size:24px}.vehicle-card{align-items:flex-start}.vehicle-main{align-items:flex-start}.vehicle-badge{width:50px;height:50px;border-radius:13px}.vehicle-year{display:none}.details-grid{grid-template-columns:1fr}.spec-list{grid-template-columns:1fr}.spec:nth-child(odd),.spec:nth-child(even){padding:14px 0;border-right:0}.steps{grid-template-columns:1fr}.steps article{min-height:175px}.steps h3{margin-top:30px}.section-heading h2,.data-grid h2,.pro-card h2{font-size:32px}.how,.data-section{padding:67px 0}.pro-card{padding:31px 25px}.outline-btn{width:100%;text-align:center}.result-topline{align-items:flex-start;gap:12px;flex-direction:column}.footer-inner{padding:4px 0}}
+
+/* Premium history report */
+.history-count{font-size:10px;color:#d9dde3;border:1px solid #30353d;border-radius:99px;padding:6px 9px;white-space:nowrap}.locked-history{display:flex;flex-direction:column;align-items:flex-start}.lock-circle{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#1b1f25;border:1px solid #292e35;margin:18px 0 20px}.lock-circle svg{width:21px;height:21px;fill:none;stroke:#f1f3f5;stroke-width:1.6}.locked-label{display:block;color:#8d96a3;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}.masked-mileage{font-size:34px;line-height:1.15;font-weight:800;letter-spacing:.02em;color:#fff;margin:6px 0 8px;filter:blur(.2px)}.locked-copy p{font-size:12px;line-height:1.65;color:#9aa2ad;margin:0 0 19px}.report-includes{width:100%;border-top:1px solid #292e35;padding:14px 0 5px}.report-includes div{display:flex;gap:9px;align-items:center;font-size:11px;color:#b7bec7;padding:5px 0}.report-includes span{color:#4cd18a}.unlock-btn{width:100%;margin-top:16px;border:0;border-radius:11px;padding:14px 15px;background:#fff;color:#101216;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font:inherit;transition:.18s}.unlock-btn:hover{transform:translateY(-1px);background:#f1f3f5}.unlock-btn span{font-size:13px;font-weight:800}.unlock-btn strong{font-size:13px}.availability-note{font-size:10px!important;color:#78818d!important;margin:10px 0 0!important;line-height:1.5!important}.unlocked-history{width:100%}.unlocked-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin:24px 0 21px}.mileage-date{font-size:11px;color:#8f98a4;margin:0}.verified-history{font-size:10px;color:#72daa2;background:#10291d;border:1px solid #1d4d35;border-radius:99px;padding:6px 8px;white-space:nowrap}.timeline{border-top:1px solid #292e35;border-bottom:1px solid #292e35;margin-bottom:17px}.timeline-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid #242930}.timeline-row:last-child{border-bottom:0}.timeline-row span{font-size:11px;color:#929ba6}.timeline-row strong{font-size:12px;color:#f5f6f7}.mileage-rule.good{border-top:0;padding-top:0;color:#a6d9bd}.modal-backdrop{position:fixed;inset:0;background:rgba(4,6,8,.68);backdrop-filter:blur(8px);z-index:100;display:grid;place-items:center;padding:20px}.modal-backdrop.hidden{display:none}#resultSection:target{display:block}.payment-modal{width:min(480px,100%);background:#fff;border-radius:22px;padding:27px;box-shadow:0 28px 90px rgba(0,0,0,.25);position:relative}.modal-close{position:absolute;right:18px;top:16px;width:34px;height:34px;border-radius:50%;border:1px solid #e2e5e9;background:#f7f8f9;color:#565e68;font-size:22px;line-height:1;cursor:pointer}.payment-modal h2{font-size:26px;letter-spacing:-.04em;margin:7px 40px 6px 0}.payment-sub{font-size:13px;color:#737b86;margin-bottom:22px}.payment-summary{display:flex;justify-content:space-between;gap:16px;align-items:center;background:#f5f6f7;border:1px solid #e5e7ea;border-radius:14px;padding:15px 16px}.payment-summary>div:first-child{display:flex;flex-direction:column;gap:4px}.payment-summary span{font-size:11px;color:#787f88}.payment-summary strong{font-size:13px}.payment-total{text-align:right}.payment-total strong{display:block;font-size:19px;margin-top:2px}.payment-methods{margin:22px 0 16px}.payment-label{display:block;font-size:11px;font-weight:800;color:#6d747f;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}.payment-option{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;border:1px solid #e1e4e8;border-radius:12px;padding:13px 14px;margin-top:8px;cursor:pointer}.payment-option.selected{border-color:#171a1f;box-shadow:0 0 0 1px #171a1f}.payment-option input{accent-color:#111318}.payment-option span{display:flex;flex-direction:column;gap:3px}.payment-option strong{font-size:12px}.payment-option small{font-size:10px;color:#858c96}.payment-option b{font-size:17px;color:#9ba1a9}.pay-btn{width:100%;border:0;border-radius:11px;background:#e11b22;color:#fff;padding:15px 16px;font-weight:800;cursor:pointer;font-size:13px}.pay-btn:hover{background:#ca141a}.demo-payment-note{text-align:center;color:#9097a1;font-size:10px;margin:10px 0 0}.pay-btn:focus,.unlock-btn:focus,.modal-close:focus{outline:3px solid rgba(225,27,34,.2);outline-offset:2px}@media(max-width:620px){.unlocked-top{flex-direction:column}.payment-modal{padding:23px 18px}.payment-summary{align-items:flex-start}.masked-mileage{font-size:30px}}
+
+  
+@media(max-width:520px){.plate-type-switch label{padding:10px 7px}.rs-plate{grid-template-columns:96px 1fr}.rs-symbol strong{font-size:18px}.rs-symbol span{font-size:13px}}
+
+  
+@media (prefers-color-scheme: dark){html,body{background:#f4f5f6;color:var(--ink)}}
+
+.lookup-message{margin-top:12px;padding:11px 12px;border-radius:10px;font-size:12px;line-height:1.45;display:none}.lookup-message.show{display:block}.lookup-message.error{background:#fff1f1;border:1px solid #f2c7c9;color:#8c1e24}.lookup-message.info{background:#f1f6ff;border:1px solid #ccdafa;color:#36537b}.primary-btn[disabled]{opacity:.72;cursor:wait;transform:none}.spinner{width:15px;height:15px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#" aria-label="Matrik accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img"><path d="M5 9.5A4.5 4.5 0 0 1 9.5 5h13A4.5 4.5 0 0 1 27 9.5v13a4.5 4.5 0 0 1-4.5 4.5h-13A4.5 4.5 0 0 1 5 22.5v-13Z"/><path class="cut" d="M10.2 11.2h11.6v9.6H10.2z"/></svg>
+        </span>
+        <span>Matrik</span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#comment">Comment ça marche</a>
+        <a href="#donnees">Données</a>
+        <a href="#pro">Professionnels</a>
+      </nav>
+      <a class="small-cta" href="#search">Identifier un véhicule</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="search">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> Recherche véhicule en Tunisie</div>
+          <h1>Une plaque.<br><em>Les bonnes informations.</em></h1>
+          <p class="lead">Entrez une immatriculation tunisienne pour identifier le véhicule et consulter ses principales caractéristiques.</p>
+          <div class="trust-row">
+            <div><strong>Rapide</strong><span>résultat en quelques secondes</span></div>
+            <div><strong>Clair</strong><span>aucune donnée propriétaire affichée</span></div>
+          </div>
+        </div>
+
+        <div class="lookup-card">
+          <div class="lookup-head">
+            <div>
+              <span class="mini-label">IMMATRICULATION TUNISIENNE</span>
+              <h2>Quel véhicule cherchez-vous ?</h2>
+            </div>
+            <span class="status-dot">Service en ligne</span>
+          </div>
+
+          <form id="plateForm" action="#resultSection" method="get" autocomplete="off">
+            <div class="plate-label">Type d'immatriculation</div>
+            <div class="plate-shell">
+              <div class="plate-type-switch" role="radiogroup" aria-label="Type de plaque">
+                <input type="radio" name="plateType" id="typeNormal" value="normal" checked>
+                <label for="typeNormal">Tunisie <small>تونس</small></label>
+                <input type="radio" name="plateType" id="typeRS" value="rs">
+                <label for="typeRS">RS <small>ن.ت</small></label>
+              </div>
+
+              <div class="normal-plate-wrap">
+                <div class="plate-label">Numéro d'immatriculation</div>
+                <div class="plate" aria-label="Plaque tunisienne normale">
+                  <input id="series" name="series" inputmode="numeric" maxlength="3" placeholder="210" aria-label="Série" />
+                  <span class="tunisia">تونس</span>
+                  <input id="number" name="number" inputmode="numeric" maxlength="4" placeholder="1234" aria-label="Numéro" />
+                </div>
+                <div class="form-hint">Exemple : <button type="button" id="demoFill">210 تونس 1234</button></div>
+              </div>
+
+              <div class="rs-plate-wrap">
+                <div class="plate-label">Numéro RS</div>
+                <div class="rs-plate" aria-label="Plaque régime suspensif RS">
+                  <div class="rs-symbol"><strong>RS</strong><span>ن.ت</span></div>
+                  <input id="rsNumber" name="rsNumber" inputmode="numeric" maxlength="6" placeholder="304577" aria-label="Numéro RS" />
+                </div>
+                <div class="form-hint">Exemple : <button type="button" id="demoFillRS">RS · 304577</button></div>
+              </div>
+            </div>
+            <button class="primary-btn" type="submit">
+              <span>Identifier le véhicule</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4.5 5 5-5 5"/></svg>
+            </button>
+            <p class="privacy-note">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 8V6.5a3.5 3.5 0 1 1 7 0V8M5 8h10v8H5z"/></svg>
+              Nous n'affichons ni nom, ni adresse, ni coordonnées du propriétaire.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="result-section hidden" id="resultSection" aria-live="polite">
+      <div class="wrap">
+        <div class="result-topline">
+          <div>
+            <span class="mini-label">RÉSULTAT</span>
+            <p id="searchedPlate" class="searched-plate">Plaque saisie</p>
+          </div>
+          <span class="demo-pill" id="demoPill">Recherche réelle</span>
+        </div>
+
+        <article class="vehicle-card">
+          <div class="vehicle-main">
+            <div class="vehicle-badge" id="makeBadge">—</div>
+            <div>
+              <div class="verified-line" id="verifiedLine"><span class="verify-icon" id="verifyIcon">✓</span> <span id="verifiedText">Véhicule identifié</span></div>
+              <h3 id="vehicleTitle">Recherche en cours</h3>
+              <p id="vehicleSubtitle">Entrez une immatriculation pour identifier le véhicule.</p>
+            </div>
+          </div>
+          <div class="vehicle-year">
+            <span>Année</span>
+            <strong id="vehicleYear">—</strong>
+          </div>
+        </article>
+
+        <div class="details-grid">
+          <section class="panel specs-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="mini-label">CARACTÉRISTIQUES</span>
+                <h4>Informations véhicule</h4>
+              </div>
+              <span class="source-tag" id="sourceTag">Source véhicule</span>
+            </div>
+            <div class="spec-list">
+              <div class="spec"><span>Marque</span><strong id="specMake">—</strong></div>
+              <div class="spec"><span>Modèle</span><strong id="specModel">—</strong></div>
+              <div class="spec"><span>Motorisation</span><strong id="specEngine">—</strong></div>
+              <div class="spec"><span>Carburant</span><strong id="specFuel">—</strong></div>
+              <div class="spec"><span>Variante</span><strong id="specTransmission">—</strong></div>
+              <div class="spec"><span>Type / puissance fiscale</span><strong id="specBody">—</strong></div>
+            </div>
+          </section>
+
+          <section class="panel mileage-panel" id="historyPanel">
+            <div class="panel-heading">
+              <div>
+                <span class="mini-label">RAPPORT HISTORIQUE</span>
+                <h4>Kilométrage enregistré</h4>
+              </div>
+              <span class="history-count" id="historyCount">Kilométrage non connecté</span>
+            </div>
+
+            <div class="locked-history" id="lockedHistory">
+              <div class="lock-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10M6 10h12v10H6z"/></svg>
+              </div>
+              <div class="locked-copy">
+                <span class="locked-label" id="lockedLabel">Historique kilométrique</span>
+                <div class="masked-mileage" id="maskedMileage">—</div>
+                <p id="lockedCopyText">Le service d’identification actuel ne fournit pas de kilométrage. Un rapport ne sera proposé que lorsqu’une source historique fiable sera connectée.</p>
+              </div>
+              <div class="report-includes">
+                <div><span>✓</span> Dernier kilométrage enregistré</div>
+                <div><span>✓</span> Chronologie des relevés</div>
+                <div><span>✓</span> Détection d'écarts suspects</div>
+              </div>
+              <button class="unlock-btn" id="unlockReport" type="button">
+                <span>Débloquer le rapport</span>
+                <strong><span id="reportPrice">3,9</span> DT</strong>
+              </button>
+              <p class="availability-note" id="availabilityNote">Aucun paiement n’est demandé tant qu’aucun historique réel n’est disponible.</p>
+            </div>
+
+            <div class="unlocked-history hidden" id="unlockedHistory">
+              <div class="unlocked-top">
+                <div>
+                  <span class="locked-label">Dernier kilométrage enregistré</span>
+                  <div class="mileage-value" id="mileageValue">184 200 km</div>
+                  <p class="mileage-date" id="mileageDate">Relevé le 12 mai 2025</p>
+                </div>
+                <span class="verified-history">✓ Source vérifiée</span>
+              </div>
+              <div class="timeline" id="mileageTimeline">
+                <div class="timeline-row"><span>12 mai 2025</span><strong>184 200 km</strong></div>
+                <div class="timeline-row"><span>08 juin 2024</span><strong>165 870 km</strong></div>
+                <div class="timeline-row"><span>21 avril 2023</span><strong>143 110 km</strong></div>
+              </div>
+              <div class="mileage-rule good">
+                <span class="rule-icon">✓</span>
+                <span>Aucune baisse anormale détectée entre les relevés disponibles.</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="comment">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="mini-label">SIMPLE PAR CONCEPTION</span>
+          <h2>Trois étapes, rien de plus.</h2>
+        </div>
+        <div class="steps">
+          <article><span>01</span><h3>Saisissez la plaque</h3><p>Entrez la série et le numéro comme ils apparaissent sur le véhicule.</p></article>
+          <article><span>02</span><h3>Nous identifions le véhicule</h3><p>Les données disponibles sont récupérées et structurées automatiquement.</p></article>
+          <article><span>03</span><h3>Consultez la fiche</h3><p>Marque, modèle, année, moteur et autres informations utiles en un coup d'œil.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="data-section" id="donnees">
+      <div class="wrap data-grid">
+        <div>
+          <span class="mini-label">TRANSPARENCE</span>
+          <h2>On affiche ce que l'on sait.<br>Pas ce que l'on suppose.</h2>
+        </div>
+        <div class="data-copy">
+          <p>Chaque information est associée à sa source et à son niveau de disponibilité. Si une donnée n'est pas accessible de façon fiable, elle est indiquée comme indisponible.</p>
+          <div class="check-row"><span>✓</span> Aucune identité de propriétaire affichée</div>
+          <div class="check-row"><span>✓</span> Aucun kilométrage inventé ou estimé</div>
+          <div class="check-row"><span>✓</span> Séparation claire entre véhicule et historique</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pro-section" id="pro">
+      <div class="wrap pro-card">
+        <div>
+          <span class="mini-label light">POUR LES PROFESSIONNELS</span>
+          <h2>Une recherche pensée aussi pour les garages et revendeurs.</h2>
+          <p>Accès API, recherches en volume et outils métier pourront être proposés dans une version professionnelle.</p>
+        </div>
+        <a href="mailto:contact@example.com" class="outline-btn">Être informé du lancement</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="brand footer-brand"><span class="brand-mark"></span><span>Matrik</span></div>
+      <p>Service indépendant d'information automobile. Nom et identité visuelle provisoires.</p>
+      <p>© 2026 Matrik</p>
+    </div>
+  </footer>
+
+
+  <div class="modal-backdrop hidden" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+    <div class="payment-modal">
+      <button class="modal-close" id="closePayment" type="button" aria-label="Fermer">×</button>
+      <span class="mini-label">RAPPORT COMPLET</span>
+      <h2 id="paymentTitle">Débloquer l'historique du véhicule</h2>
+      <p class="payment-sub">Un seul paiement. Aucun abonnement.</p>
+
+      <div class="payment-summary">
+        <div>
+          <span id="paymentPlate">Plaque tunisienne</span>
+          <strong id="paymentVehicle">Véhicule identifié</strong>
+        </div>
+        <div class="payment-total"><span>Total</span><strong>3,9 DT</strong></div>
+      </div>
+
+      <div class="payment-methods">
+        <span class="payment-label">Mode de paiement</span>
+        <label class="payment-option selected"><input type="radio" name="payment" checked><span><strong>Carte bancaire</strong><small>Visa / Mastercard</small></span><b>›</b></label>
+        <label class="payment-option"><input type="radio" name="payment"><span><strong>D17 / e-Dinar</strong><small>À connecter au lancement</small></span><b>›</b></label>
+      </div>
+
+      <button class="pay-btn" id="demoPay" type="button">Simuler le paiement · 3,9 DT</button>
+      <p class="demo-payment-note">Prototype uniquement — aucune transaction réelle n'est effectuée.</p>
+    </div>
+  </div>
+
+  <script>
+const form = document.getElementById('plateForm');
+const series = document.getElementById('series');
+const number = document.getElementById('number');
+const rsNumber = document.getElementById('rsNumber');
+const typeNormal = document.getElementById('typeNormal');
+const typeRS = document.getElementById('typeRS');
+const resultSection = document.getElementById('resultSection');
+const searchedPlate = document.getElementById('searchedPlate');
+const demoFill = document.getElementById('demoFill');
+const demoFillRS = document.getElementById('demoFillRS');
+const unlockReport = document.getElementById('unlockReport');
+const lookupMessage = document.getElementById('lookupMessage');
+const submitBtn = form.querySelector('.primary-btn');
+const lockedHistory = document.getElementById('lockedHistory');
+const unlockedHistory = document.getElementById('unlockedHistory');
+const paymentModal = document.getElementById('paymentModal');
+const closePayment = document.getElementById('closePayment');
+
+[series, number, rsNumber].forEach((el) => {
+  el.addEventListener('input', () => { el.value = el.value.replace(/\D/g, ''); });
+});
+
+demoFill.addEventListener('click', () => {
+  typeNormal.checked = true;
+  // Provider's public test plate: 223 تونس 818 -> 818TU223
+  series.value = '223';
+  number.value = '818';
+});
+
+demoFillRS.addEventListener('click', () => {
+  typeRS.checked = true;
+  rsNumber.value = '304577';
+});
+
+function showMessage(text, kind='error') {
+  lookupMessage.textContent = text;
+  lookupMessage.className = `lookup-message show ${kind}`;
+}
+function clearMessage() {
+  lookupMessage.textContent = '';
+  lookupMessage.className = 'lookup-message';
+}
+function setLoading(loading) {
+  submitBtn.disabled = loading;
+  submitBtn.innerHTML = loading
+    ? '<span class="spinner" aria-hidden="true"></span> Recherche en cours…'
+    : 'Identifier le véhicule <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
+}
+function safe(value, fallback='—') {
+  const text = String(value ?? '').trim();
+  return text || fallback;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  clearMessage();
+
+  const isRS = typeRS.checked;
+  const s = series.value.trim();
+  const n = number.value.trim();
+  const rs = rsNumber.value.trim();
+  const valid = isRS ? /^\d{1,6}$/.test(rs) : (/^\d{1,3}$/.test(s) && /^\d{1,4}$/.test(n));
+
+  if (!valid) {
+    showMessage(isRS ? 'Entrez un numéro RS valide.' : 'Entrez la série et le numéro de la plaque.');
+    return;
+  }
+
+  setLoading(true);
+  try {
+    const response = await fetch('/api/lookup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plateType: isRS ? 'rs' : 'normal', series: s, number: n, rsNumber: rs })
+    });
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok || !data.ok) {
+      if (data.error === 'API_NOT_CONFIGURED') {
+        throw new Error('API_NOT_CONFIGURED');
+      }
+      if (data.error === 'VEHICLE_NOT_FOUND') {
+        showMessage('Aucun véhicule n’a été trouvé pour cette immatriculation. Vérifiez les chiffres et réessayez.');
+        return;
+      }
+      if (data.error === 'NO_CREDITS') {
+        showMessage('Les crédits RegCheck sont épuisés. Rechargez le compte API pour continuer les recherches.');
+        return;
+      }
+      if (data.error === 'AUTH_ERROR') {
+        showMessage('Le compte RegCheck n’est pas reconnu par le serveur. Vérifiez REGCHECK_USERNAME.');
+        return;
+      }
+      throw new Error(data.error || 'LOOKUP_FAILED');
+    }
+
+    renderVehicle(data);
+    resultSection.classList.remove('hidden');
+    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch (error) {
+    if (error.message === 'API_NOT_CONFIGURED') {
+      showMessage('La recherche réelle est prête. Ajoutez REGCHECK_USERNAME dans les variables d’environnement Vercel pour activer les plaques réelles.');
+    } else {
+      showMessage('Impossible de joindre RegCheck pour le moment. Réessayez dans quelques secondes.');
+    }
+  } finally {
+    setLoading(false);
+  }
+});
+
+function renderVehicle(data) {
+  const v = data.vehicle || {};
+  searchedPlate.textContent = data.plate || 'Plaque tunisienne';
+  document.getElementById('demoPill').textContent = 'Données RegCheck en direct';
+  document.getElementById('verifiedText').textContent = 'Véhicule identifié';
+  document.getElementById('verifyIcon').textContent = '✓';
+  document.getElementById('sourceTag').textContent = data.source || 'RegCheck · Tunisie';
+
+  document.getElementById('makeBadge').textContent = safe(v.make, 'AUTO').slice(0, 8).toUpperCase();
+  document.getElementById('vehicleTitle').textContent = `${safe(v.make, '')} ${safe(v.model, '')}`.trim() || safe(v.description, 'Véhicule identifié');
+  document.getElementById('vehicleSubtitle').textContent = [v.variant, v.type].filter(Boolean).join(' · ') || safe(v.description, 'Informations véhicule');
+  document.getElementById('vehicleYear').textContent = safe(v.year);
+  document.getElementById('specMake').textContent = safe(v.make);
+  document.getElementById('specModel').textContent = safe(v.model);
+  document.getElementById('specEngine').textContent = safe(v.engine);
+  document.getElementById('specFuel').textContent = safe(v.fuel);
+  document.getElementById('specTransmission').textContent = safe(v.variant);
+  const typeFiscal = [v.type, v.fiscalPower ? `${v.fiscalPower} CV` : ''].filter(Boolean).join(' · ');
+  document.getElementById('specBody').textContent = safe(typeFiscal);
+
+  // This provider's public Tunisia documentation does not expose odometer history.
+  document.getElementById('historyCount').textContent = 'Kilométrage non connecté';
+  document.getElementById('lockedLabel').textContent = 'Historique kilométrique';
+  document.getElementById('maskedMileage').textContent = '—';
+  document.getElementById('lockedCopyText').textContent = 'Le véhicule est identifié en temps réel, mais le kilométrage nécessite une seconde source historique fiable.';
+  document.getElementById('availabilityNote').textContent = 'Aucun paiement n’est demandé tant qu’aucun historique réel n’est disponible.';
+  unlockReport.disabled = true;
+  unlockReport.innerHTML = '<span>Historique indisponible</span><strong>—</strong>';
+  unlockReport.style.opacity = '.55';
+  unlockReport.style.cursor = 'not-allowed';
+  lockedHistory.classList.remove('hidden');
+  unlockedHistory.classList.add('hidden');
+}
+
+// Payment UI stays dormant until a real mileage/history provider is connected.
+unlockReport.addEventListener('click', () => {});
+function closeModal(){ paymentModal.classList.add('hidden'); document.body.style.overflow=''; }
+closePayment?.addEventListener('click', closeModal);
+paymentModal?.addEventListener('click', (e) => { if (e.target === paymentModal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
