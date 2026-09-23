@@ -1,12 +1,14 @@
-# Matrik — Cloudflare Worker v2
+# Matrik — Cloudflare Worker v3
 
-This version intentionally uses a single root `worker.js` file. There is no `src/` folder and no static-assets directory, avoiding Cloudflare build-root and oversized-asset issues.
+This version fixes the vehicle-search button.
 
 ## Deploy
-1. Upload/import this project with these files at the project root.
-2. Build command: leave blank (or use `npm install` only if your flow requires it).
-3. Deploy command: `npx wrangler deploy`.
-4. In Cloudflare Worker settings, add secret/environment variable: `REGCHECK_USERNAME` = your RegCheck username.
-5. Redeploy.
+1. Upload/import this project to Cloudflare Workers.
+2. In Worker Settings > Variables and Secrets, add:
+   REGCHECK_USERNAME = your RegCheck username
+3. Redeploy.
+4. Open the site and test the public sample plate:
+   series 223 / number 818
+   (API format: 818TU223)
 
-Do not put the RegCheck username into browser JavaScript.
+The website calls `/api/lookup` on the same Worker, so the RegCheck username stays server-side.
