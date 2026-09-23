@@ -1,20 +1,22 @@
-# Matrik — version live Tunisie
+# Matrik — Cloudflare Workers version
 
-Cette version utilise le même endpoint RegCheck qui a été testé avec succès avec `818TU223`.
+This version is built specifically for Cloudflare Workers + Static Assets.
 
-## Ce qui fonctionne
-- Plaques tunisiennes normales : `223 تونس 818` est convertie en `818TU223` côté serveur.
-- Résultat réel : marque, modèle, année, carburant, variante, moteur, type et puissance fiscale si RegCheck les retourne.
-- RS est présent dans l'interface. Le code utilise `RS` comme représentation latine de `ن ت`; le format exact RS doit être confirmé avec un vrai test RS avant lancement public.
-- Aucun faux kilométrage : la partie kilométrage reste désactivée tant qu'une vraie source historique n'est pas connectée.
+## Why the previous Cloudflare deployment failed
+The assets directory was set to `.` so Wrangler tried to upload the whole repository, including `node_modules`. A `workerd` binary was 127 MiB, above Cloudflare's 25 MiB per-asset limit.
 
-## Mise en ligne sur Vercel
-1. Crée/importez un projet Vercel avec ce dossier.
-2. Ouvrez **Settings -> Environment Variables**.
-3. Ajoutez :
+This project fixes that by putting static files only in `public/` and using `assets.directory = "./public"`.
+
+## Deploy in Cloudflare
+1. Upload/import this project (not the old ZIP/repository).
+2. Build/deploy command: `npm run deploy` (or `npx wrangler deploy`).
+3. In the Cloudflare Worker project, add a secret/environment variable:
    - Name: `REGCHECK_USERNAME`
-   - Value: votre nom d'utilisateur RegCheck
-4. Redeployez le projet.
-5. Ouvrez le site et testez d'abord `223 تونس 818` (l'exemple RegCheck `818TU223`).
+   - Value: your RegCheck username
+4. Redeploy.
+5. Test the RegCheck sample plate in the Matrik UI: `223 تونس 818`.
 
-Ne mettez jamais le username RegCheck dans `index.html` : sinon les visiteurs peuvent le récupérer et consommer vos crédits directement.
+Do not put the RegCheck username in `public/index.html`.
+
+## RS plates
+RS is supported by the UI and backend using the `RS` code. Test a real RS plate before advertising RS support publicly because the provider documentation does not include a live RS sample.
